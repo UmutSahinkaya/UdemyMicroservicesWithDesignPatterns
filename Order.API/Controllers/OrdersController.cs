@@ -59,7 +59,7 @@ namespace Order.API.Controllers
             {
                 orderCreatedEvent.OrderItems.Add(new OrderItemMessage { Count = item.Count, ProductId = item.ProductId });
             });
-            await _publishEndpoint.Publish(orderCreatedEvent);
+            await _publishEndpoint.Publish(orderCreatedEvent);// Send de kullanabilirdik ama send direk olarak kuruğa gönderir.!!! Kuyruğa giderse kalıcı olur.//
             return Ok();
         }
     }
