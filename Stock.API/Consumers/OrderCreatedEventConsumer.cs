@@ -60,8 +60,10 @@ namespace Stock.API.Consumers
                 await _publishEndpoint.Publish(new StockNotReservedEvent
                 {
                     OrderId = context.Message.OrderId,
-                    Message = "Not enough Stock"
+                    Message = "Not enough stock"
                 });
+                _logger.LogInformation($"Not enough stock for Buyer Id:{context.Message.BuyerId}");
+
             }
 
         }
