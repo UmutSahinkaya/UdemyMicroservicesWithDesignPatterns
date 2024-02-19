@@ -32,7 +32,9 @@ namespace SagaStateMachineWorkerService.Models
                 context.Instance.CVV = context.Data.Payment.CVV;
                 context.Instance.Expiration = context.Data.Payment.Expiration;
                 context.Instance.TotalPrice = context.Data.Payment.TotalPrice;
-            }).Then(context => { Console.WriteLine($"OrderCreatedRequestEvent before : {context.Instance}"); }).TransitionTo(OrderCreated).Then(context => { Console.WriteLine($"OrderCreatedRequestEvent before : {context.Instance}"); }));
-        }
+            }).Then(context => { Console.WriteLine($"OrderCreatedRequestEvent before : {context.Instance}"); })
+            .TransitionTo(OrderCreated)
+            .Then(context => { Console.WriteLine($"OrderCreatedRequestEvent before : {context.Instance}"); }));
+        } 
     }
 }
