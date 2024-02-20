@@ -60,13 +60,15 @@ namespace Stock.API.Consumers
             }
             else
             {
-                await _publishEndpoint.Publish(new StockNotReservedEvent(context.Message.CorrelationId)
+                await _publishEndpoint.Publish(new StockNotReservedEvent
                 {
-                    Reason = "Not enough stock"
+                    Reason="Not enough stock"
                 });
 
-                _logger.LogInformation($"Not enough stock for CorrelationId Id :{context.Message.CorrelationId}");
+                _logger.LogInformation($"Not enough stock for correlation Id:{context.Message.CorrelationId}");
+
             }
+
         }
     }
 }
